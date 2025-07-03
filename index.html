@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Приглашение на свадьбу Алексея и Дарьи</title>
+  <script src="https://cdn.tailwindcss.com/3.4.1"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#e63946',
+            secondary: '#f1faee',
+            accent: '#a8dadc',
+            dark: '#1d3557',
+            light: '#f8f9fa'
+          },
+          fontFamily: {
+            'sans': ['"Playfair Display"', 'serif'],
+            'serif': ['"Playfair Display"', 'serif'],
+            'script': ['"Playfair Display"', 'serif']
+          },
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'pulse-slow': 'pulse 3s ease infinite'
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-15px)' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    
+    .hero-section {
+      background: linear-gradient(rgba(29, 53, 87, 0.7), rgba(29, 53, 87, 0.7)), 
+                  url('https://i.postimg.cc/yNSKW1kk/IMG-0145.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+    
+    .floral-divider {
+      position: relative;
+      height: 30px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23f8f9fa' fill-opacity='1' d='M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,181.3C960,181,1056,235,1152,234.7C1248,235,1344,181,1392,154.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3Cpath fill='%23e63946' fill-opacity='0.3' d='M200,150 Q220,130 240,150 T280,150'/%3E%3Cpath fill='%23e63946' fill-opacity='0.3' d='M400,170 Q420,150 440,170 T480,170'/%3E%3Cpath fill='%23e63946' fill-opacity='0.3' d='M600,190 Q620,170 640,190 T680,190'/%3E%3Cpath fill='%23e63946' fill-opacity='0.3' d='M800,210 Q820,190 840,210 T880,210'/%3E%3Cpath fill='%23e63946' fill-opacity='0.3' d='M1000,230 Q1020,210 1040,230 T1080,230'/%3E%3Cpath fill='%23e63946' fill-opacity='0.3' d='M1200,250 Q1220,230 1240,250 T1280,250'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+    
+    .floral-divider-top {
+      transform: rotate(180deg);
+    }
+    
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -37px;
+      top: 0;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: #e63946;
+      border: 4px solid white;
+      z-index: 2;
+    }
+    
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 9px;
+      top: 0;
+      height: 100%;
+      width: 2px;
+      background: linear-gradient(to bottom, rgba(230, 57, 70, 0.2), rgba(230, 57, 70, 0.2) 20px, transparent 20px, transparent 40px);
+      background-size: 2px 40px;
+      background-repeat: repeat-y;
+    }
+    
+    .heart-date {
+      position: relative;
+    }
+    
+    .heart-icon {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      color: #e63946;
+      animation: pulse 1.5s infinite;
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+    
+    .calendar-day {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+    
+    .calendar-day:hover:not(.empty-day):not(.heart-date) {
+      background-color: rgba(230, 57, 70, 0.05);
+      transform: translateY(-2px);
+    }
+    
+    .heart-date {
+      background-color: rgba(230, 57, 70, 0.08);
+      color: #e63946;
+      font-weight: 600;
+    }
+    
+    .radio-custom {
+      position: relative;
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #e63946;
+      border-radius: 50%;
+      margin-right: 8px;
+    }
+    
+    .radio-custom::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 10px;
+      height: 10px;
+      background-color: #e63946;
+      border-radius: 50%;
+      opacity: 0;
+      transition: opacity 0.2s;
+    }
+    
+    input[type="radio"]:checked + .radio-custom::after {
+      opacity: 1;
+    }
+    
+    .countdown-item {
+      min-width: 80px;
+    }
+    
+    .photo-frame {
+      border: 8px solid white;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      transform: rotate(-3deg);
+      transition: transform 0.3s ease;
+    }
+    
+    .photo-frame:hover {
+      transform: rotate(0deg) scale(1.05);
+    }
+    
+    .photo-frame-alt {
+      transform: rotate(3deg);
+    }
+    
+    .photo-frame-alt:hover {
+      transform: rotate(0deg) scale(1.05);
+    }
+    
+    .btn-primary {
+      background-color: #e63946;
+      color: white;
+      transition: all 0.3s ease;
+      letter-spacing: 1px;
+      font-weight: normal;
+    }
+    
+    .btn-primary:hover {
+      background-color: #c1121f;
+      transform: translateY(-2px);
+    }
+    
+    .btn-outline {
+      border: 2px solid #e63946;
+      color: #e63946;
+      transition: all 0.3s ease;
+      letter-spacing: 1px;
+      font-weight: normal;
+    }
+    
+    .btn-outline:hover {
+      background-color: #e63946;
+      color: white;
+    }
+  </style>
+</head>
+<body class="font-serif bg-light text-dark" style="font-weight: 400; background-image: url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"100\" height=\"100\" viewBox=\"0 0 100 100\"><path fill=\"none\" stroke=\"%23e6394630\" stroke-width=\"0.5\" d=\"M20,20 Q30,10 40,20 T60,20 T80,20\" /><path fill=\"none\" stroke=\"%23e6394630\" stroke-width=\"0.5\" d=\"M20,40 Q30,30 40,40 T60,40 T80,40\" /><path fill=\"none\" stroke=\"%23e6394630\" stroke-width=\"0.5\" d=\"M20,60 Q30,50 40,60 T60,60 T80,60\" /><path fill=\"none\" stroke=\"%23e6394630\" stroke-width=\"0.5\" d=\"M20,80 Q30,70 40,80 T60,80 T80,80\" /><circle cx=\"10\" cy=\"10\" r=\"1\" fill=\"%23e6394630\" /><circle cx=\"90\" cy=\"10\" r=\"1\" fill=\"%23e6394630\" /><circle cx=\"10\" cy=\"90\" r=\"1\" fill=\"%23e6394630\" /><circle cx=\"90\" cy=\"90\" r=\"1\" fill=\"%23e6394630\" /></svg>');">
+  <!-- Hero Section -->
+  <section id="home" class="hero-section flex items-center justify-center min-h-screen relative overflow-hidden">
+    <div class="absolute inset-0 bg-black/20 z-0" style="background: linear-gradient(rgba(29, 53, 87, 0.7), rgba(29, 53, 87, 0.7)), url('https://i.postimg.cc/vHVHctkQ/IMG-0154.jpg'); background-size: cover; background-position: center; background-attachment: fixed;"></div>
+    <div class="absolute top-20 left-20 text-6xl text-white/20 z-0"><i class="fas fa-heart"></i></div>
+    <div class="absolute bottom-20 right-20 text-6xl text-white/20 z-0"><i class="fas fa-heart"></i></div>
+    <div class="absolute top-1/4 right-1/4 text-5xl text-white/15 z-0"><i class="fas fa-ring"></i></div>
+    <div class="absolute bottom-1/4 left-1/4 text-5xl text-white/15 z-0"><i class="fas fa-ring"></i></div>
+    <div class="text-center text-white px-4 z-10 max-w-4xl mx-auto">
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-serif mb-6 md:mb-8 tracking-widest animate-float">30 | 08 | 2025</h2>
+      <div class="flex flex-col items-center gap-1 md:gap-2 mb-6 md:mb-8">
+        <h1 class="text-4xl sm:text-5xl md:text-7xl font-script text-accent mb-2 md:mb-4">Wedding Day</h1>
+        <p class="text-lg sm:text-xl md:text-2xl tracking-wider font-light">it's our</p>
+      </div>
+      <div class="w-20 md:w-24 h-[1px] bg-white/30 mx-auto mb-6 md:mb-8"></div>
+      <h3 class="text-2xl sm:text-3xl md:text-7xl font-serif tracking-wider mb-6 md:mb-8">Алексей & Дарья</h3>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="#details" class="btn-primary px-8 py-3 rounded-full font-medium">
+          Подробнее <i class="fas fa-chevron-down ml-2"></i>
+        </a>
+      </div>
+    </div>
+    <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce z-10">
+      <a href="#details" class="w-12 h-12 flex items-center justify-center bg-white/20 rounded-full backdrop-blur-sm">
+        <i class="fas fa-chevron-down text-white text-xl"></i>
+      </a>
+    </div>
+  </section>
+
+  <!-- Floral Divider -->
+  <div class="floral-divider floral-divider-top"></div>
+
+  <!-- Couple Story -->
+  <section class="py-20 px-4 bg-light relative overflow-hidden">
+    <div class="absolute top-10 right-10 text-5xl text-primary/10"><i class="fas fa-heart"></i></div>
+    <div class="absolute bottom-10 left-10 text-5xl text-primary/10"><i class="fas fa-heart"></i></div>
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-4xl font-serif text-center mb-16">Дорогие родные и близкие!</h2>
+      <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+        <div class="w-full md:w-1/2 relative">
+          <div class="photo-frame">
+            <img src="https://i.postimg.cc/Dyj3gJGS/IMG-0144.jpg" 
+                 alt="Couple photo" class="w-full h-auto">
+          </div>
+          <div class="photo-frame-alt absolute -bottom-4 md:-bottom-8 -right-4 md:-right-8 hidden md:block">
+            <img src="https://i.postimg.cc/yNSKW1kk/IMG-0145.jpg" 
+                 alt="Couple photo" class="w-32 md:w-48 h-auto">
+          </div>
+        </div>
+        <div class="w-full md:w-1/2 mt-8 md:mt-0">
+          <div class="prose prose-lg md:prose-xl max-w-none">
+            <p class="text-lg md:text-xl mb-4 md:mb-6 tracking-wide leading-relaxed">Мы давно ждали момента, когда сможем разделить с вами самый важный и счастливый день в нашей жизни.</p>
+            <p class="text-lg md:text-xl mb-4 md:mb-6 tracking-wide leading-relaxed">Совсем скоро состоится наша свадьба! Мы рады пригласить вас стать свидетелями этого торжества и разделить с нами самые яркие моменты!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Countdown -->
+  <section class="py-16 bg-accent text-dark relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10 z-0">
+      <div class="absolute top-10 left-10 text-4xl"><i class="fas fa-ring"></i></div>
+      <div class="absolute top-1/4 right-20 text-5xl"><i class="fas fa-heart"></i></div>
+      <div class="absolute bottom-20 left-1/3 text-6xl"><i class="fas fa-glass-cheers"></i></div>
+      <div class="absolute top-1/3 left-1/4 text-3xl"><i class="fas fa-dove"></i></div>
+      <div class="absolute bottom-10 right-10 text-4xl"><i class="fas fa-ring"></i></div>
+      <div class="absolute top-20 right-1/3 text-5xl"><i class="fas fa-heart"></i></div>
+    </div>
+    <div class="max-w-4xl mx-auto px-4 text-center">
+      <h3 class="text-2xl font-serif mb-6">До нашего торжества осталось:</h3>
+      <div class="flex justify-center gap-2 sm:gap-4 md:gap-8 flex-wrap">
+        <div class="countdown-item bg-white/80 p-2 sm:p-4 rounded-lg shadow-sm">
+          <div class="text-2xl sm:text-3xl font-bold" id="days">00</div>
+          <div class="text-xs sm:text-sm">дней</div>
+        </div>
+        <div class="countdown-item bg-white/80 p-2 sm:p-4 rounded-lg shadow-sm">
+          <div class="text-2xl sm:text-3xl font-bold" id="hours">00</div>
+          <div class="text-xs sm:text-sm">часов</div>
+        </div>
+        <div class="countdown-item bg-white/80 p-2 sm:p-4 rounded-lg shadow-sm">
+          <div class="text-2xl sm:text-3xl font-bold" id="minutes">00</div>
+          <div class="text-xs sm:text-sm">минут</div>
+        </div>
+        <div class="countdown-item bg-white/80 p-2 sm:p-4 rounded-lg shadow-sm">
+          <div class="text-2xl sm:text-3xl font-bold" id="seconds">00</div>
+          <div class="text-xs sm:text-sm">секунд</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Floral Divider -->
+  <div class="floral-divider"></div>
+
+  <!-- Details Section -->
+  <section id="details" class="py-20 px-4 bg-white">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-4xl font-serif text-center mb-16">Детали торжества</h2>
+      
+      <!-- Venue Information -->
+      <div class="mb-20 bg-light p-12 rounded-xl shadow-sm max-w-3xl mx-auto">
+        <div class="text-center mb-10">
+          <div class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+            <i class="fas fa-map-marker-alt text-3xl text-primary"></i>
+          </div>
+          <h3 class="text-4xl font-serif mb-2">Место проведения</h3>
+          <div class="w-24 h-1 bg-primary/30 mx-auto"></div>
+        </div>
+        
+        <div class="space-y-6 max-w-xl mx-auto">
+          <div class="flex items-start bg-white p-4 sm:p-6 rounded-lg shadow-sm">
+            <div class="text-primary mr-3 sm:mr-4 mt-1">
+              <i class="fas fa-map-marker-alt text-xl sm:text-2xl"></i>
+            </div>
+            <div>
+              <p class="text-xl sm:text-2xl mb-1">Ресторан "Ниагара"</p>
+              <p class="text-gray-600 flex items-center text-sm sm:text-base tracking-wider">
+                <i class="fas fa-location-dot text-primary mr-2"></i>
+                Елисеевская ул., 14, Орск
+              </p>
+            </div>
+          </div>
+          
+          <div class="flex items-start bg-white p-6 rounded-lg shadow-sm">
+            <div class="text-primary mr-4 mt-1">
+              <i class="far fa-calendar-alt text-2xl"></i>
+            </div>
+            <div>
+              <p class="text-2xl font-serif mb-1">30 августа 2025 года</p>
+              <p class="text-gray-600">
+                <i class="far fa-clock text-primary mr-2"></i>
+                Начало в 16:00
+              </p>
+            </div>
+          </div>
+          
+          <div class="flex items-start bg-white p-6 rounded-lg shadow-sm">
+            <div class="text-primary mr-4 mt-1">
+              <i class="fas fa-car text-2xl"></i>
+            </div>
+            <div>
+              <p class="text-2xl font-serif mb-1">Парковка</p>
+              <p class="text-gray-600">
+                <i class="fas fa-parking text-primary mr-2"></i>
+                Бесплатная парковка для гостей
+              </p>
+            </div>
+          </div>
+        </div>
+        
+        <div class="mt-10 text-center">
+          <a href="https://yandex.ru/maps/-/CHs5m-3J" target="_blank" 
+             class="btn-primary px-6 md:px-10 py-3 md:py-5 rounded-full font-medium text-lg md:text-xl hover:shadow-lg transition-all">
+            <i class="fas fa-location-arrow mr-2 md:mr-3"></i> Построить маршрут
+          </a>
+        </div>
+      </div>
+      
+      <!-- Timeline -->
+      <div class="mb-20">
+        <h3 class="text-3xl font-serif mb-12 text-center">Программа дня</h3>
+        <div class="timeline relative pl-12 max-w-2xl mx-auto">
+          <div class="timeline-item relative mb-12 pl-8">
+            <div class="mb-4 flex items-center">
+              <span class="text-xl font-medium text-primary mr-4">16:00</span>
+              <div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-full text-primary">
+                <i class="fas fa-glass-cheers text-lg"></i>
+              </div>
+            </div>
+            <h4 class="text-2xl mb-2">Сбор гостей</h4>
+            <p class="text-gray-600 tracking-wider">Приветственный фуршет и шампанское в холле ресторана</p>
+          </div>
+          <div class="timeline-item relative mb-12 pl-8">
+            <div class="mb-4 flex items-center">
+              <span class="text-xl font-medium text-primary mr-4">16:30</span>
+              <div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-full text-primary">
+                <i class="fas fa-ring text-lg"></i>
+              </div>
+            </div>
+            <h4 class="text-2xl font-serif mb-2">Церемония бракосочетания</h4>
+            <p class="text-gray-600">Торжественная церемония в саду ресторана</p>
+          </div>
+          <div class="timeline-item relative mb-12 pl-8">
+            <div class="mb-4 flex items-center">
+              <span class="text-xl font-medium text-primary mr-4">17:00</span>
+              <div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-full text-primary">
+                <i class="fas fa-utensils text-lg"></i>
+              </div>
+            </div>
+            <h4 class="text-2xl font-serif mb-2">Праздничный банкет</h4>
+            <p class="text-gray-600">Изысканный ужин, тосты и поздравления</p>
+          </div>
+          <div class="text-center text-primary text-2xl font-serif font-bold my-6">Далее</div>
+          <div class="timeline-item relative mb-12 pl-8">
+            <div class="mb-4 flex items-center">
+              <div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-full text-primary">
+                <i class="fas fa-music text-lg"></i>
+              </div>
+            </div>
+            <h4 class="text-2xl font-serif mb-2">Танцевальная программа</h4>
+            <p class="text-gray-600">Первый танец молодожёнов и музыкальное сопровождение вечера</p>
+          </div>
+          <div class="timeline-item relative pl-8">
+            <div class="mb-4 flex items-center">
+              <div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded-full text-primary">
+                <i class="fas fa-birthday-cake text-lg"></i>
+              </div>
+            </div>
+            <h4 class="text-2xl font-serif mb-2">Свадебный торт</h4>
+            <p class="text-gray-600">Торжественное разрезание торта и сладкий стол</p>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- Gifts Section -->
+  <section class="py-20 px-4 bg-white">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-4xl font-serif mb-8">Список подарков</h2>
+      <p class="text-xl text-gray-600 mb-12 max-w-2xl mx-auto">Ваше присутствие - уже подарок для нас! Но если вы хотите сделать нам сюрприз, вот пару идей:</p>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+        <div class="bg-light p-6 rounded-xl shadow-sm">
+          <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 text-primary">
+            <i class="fas fa-plane text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-serif mb-3">Путешествие</h3>
+          <p class="text-gray-600">Вклад в наше медовый месяц</p>
+        </div>
+        <div class="bg-light p-6 rounded-xl shadow-sm">
+          <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 text-primary">
+            <i class="fas fa-gift text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-serif mb-3">Денежный подарок</h3>
+          <p class="text-gray-600">Для реализации наших планов</p>
+        </div>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="py-12 px-4 bg-dark text-white">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+        <div class="text-center md:text-left">
+          <h3 class="text-3xl font-serif mb-4">Алексей & Дарья</h3>
+          <p class="text-light/80 mb-4">С нетерпением ждём встречи с вами в наш особенный день!</p>
+          <p class="text-light/60">&copy; 2025 | Свадьба Алексея и Дарьи</p>
+        </div>
+        
+        <div class="flex flex-col items-center md:items-end">
+          <div class="text-center md:text-right">
+            <p class="text-light/80 mb-2">По всем вопросам:</p>
+            <div class="space-y-1 mb-4">
+              <a href="tel:+79510373318" class="text-white hover:text-accent transition block">Алексей: +7 (951) 037-33-18</a>
+              <a href="tel:+79010832263" class="text-white hover:text-accent transition block">Дарья: +7 (901) 083-22-63</a>
+            </div>
+            <p class="text-light/60 text-sm">Если возникнут вопросы, можете позвонить нам. <br>Или написать в удобный для вас мессенджер!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Countdown timer
+      function updateCountdown() {
+        const weddingDate = new Date('August 30, 2025 16:00:00').getTime();
+        const now = new Date().getTime();
+        const distance = weddingDate - now;
+        
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+        document.getElementById('days').textContent = days.toString().padStart(2, '0');
+        document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+        document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+        document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+      }
+      
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+      
+      // Form submission
+      const form = document.querySelector('form');
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          
+          const formData = new FormData(form);
+          const data = Object.fromEntries(formData);
+          console.log('Form submitted:', data);
+          
+          const submitBtn = form.querySelector('button[type="submit"]');
+          if (submitBtn) {
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-check-circle mr-2"></i> Отправлено';
+            submitBtn.classList.remove('btn-primary');
+            submitBtn.classList.add('bg-green-500', 'hover:bg-green-600');
+            
+            // Show success message
+            const successMsg = document.createElement('div');
+            successMsg.className = 'mt-4 p-4 bg-green-100 text-green-800 rounded-lg';
+            successMsg.innerHTML = '<i class="fas fa-check-circle mr-2"></i> Спасибо! Ваш ответ успешно отправлен.';
+            form.appendChild(successMsg);
+            
+            // Reset form after 3 seconds
+            setTimeout(() => {
+              form.reset();
+              successMsg.remove();
+              submitBtn.disabled = false;
+              submitBtn.innerHTML = 'Отправить ответ <i class="fas fa-paper-plane ml-2"></i>';
+              submitBtn.classList.add('btn-primary');
+              submitBtn.classList.remove('bg-green-500', 'hover:bg-green-600');
+            }, 3000);
+          }
+        });
+      }
+      
+      // Add to calendar
+      const addToCalendarBtn = document.getElementById('addToCalendar');
+      if (addToCalendarBtn) {
+        addToCalendarBtn.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          const eventTitle = 'Свадьба Алексея и Дарьи';
+          const eventLocation = 'Ресторан "Золотой Сад", ул. Цветочная, д. 25, Москва';
+          const eventStart = '20251025T130000';
+          const eventEnd = '20251025T230000';
+          const eventDescription = 'Приглашаем вас на нашу свадьбу! Подробности: https://wedding-alexei-darya.ru';
+          
+          const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(eventTitle)}&dates=${eventStart}/${eventEnd}&details=${encodeURIComponent(eventDescription)}&location=${encodeURIComponent(eventLocation)}&sf=true&output=xml`;
+          
+          window.open(googleCalendarUrl, '_blank');
+        });
+      }
+      
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          
+          const targetId = this.getAttribute('href');
+          const targetElement = document.querySelector(targetId);
+          
+          if (targetElement) {
+            window.scrollTo({
+              top: targetElement.offsetTop - 80,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+      
+      // Radio button styling
+      document.querySelectorAll('input[type="radio"]').forEach(radio => {
+        radio.addEventListener('change', function() {
+          const allCustomRadios = document.querySelectorAll('.radio-custom');
+          allCustomRadios.forEach(customRadio => {
+            customRadio.style.borderColor = '#e63946';
+          });
+          
+          if (this.checked) {
+            const customRadio = this.nextElementSibling;
+            if (customRadio) {
+              customRadio.style.borderColor = '#e63946';
+              customRadio.style.borderWidth = '6px';
+            }
+          }
+        });
+      });
+    });
+  </script>
+<p style="border-radius: 8px; text-align: center; font-size: 12px; color: #fff; margin-top: 16px;position: fixed; left: 8px; bottom: 8px; z-index: 10; background: rgba(0, 0, 0, 0.8); padding: 4px 8px;">Made with <img src="https://enzostvs-deepsite.hf.space/logo.svg" alt="DeepSite Logo" style="width: 16px; height: 16px; vertical-align: middle;display:inline-block;margin-right:3px;filter:brightness(0) invert(1);"><a href="https://enzostvs-deepsite.hf.space" style="color: #fff;text-decoration: underline;" target="_blank" >DeepSite</a> - 🧬 <a href="https://enzostvs-deepsite.hf.space?remix=Nestalin/marry1" style="color: #fff;text-decoration: underline;" target="_blank" >Remix</a></p></body>
+</html>
