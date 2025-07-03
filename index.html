@@ -108,6 +108,11 @@
       100% { transform: scale(1); }
     }
     
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(5px); }
+    }
+    
     .calendar-day {
       width: 40px;
       height: 40px;
@@ -223,15 +228,10 @@
       <div class="w-20 md:w-24 h-[1px] bg-white/30 mx-auto mb-6 md:mb-8"></div>
       <h3 class="text-2xl sm:text-3xl md:text-7xl font-serif tracking-wider mb-6 md:mb-8">Алексей & Дарья</h3>
       <div class="flex flex-wrap justify-center gap-4">
-        <a href="#details" class="btn-primary px-8 py-3 rounded-full font-medium">
-          Подробнее <i class="fas fa-chevron-down ml-2"></i>
+        <a href="#details" class="bg-white/20 backdrop-blur-sm border-2 border-white/30 px-8 py-3 rounded-full font-medium hover:bg-white/30 transition-all duration-300">
+          Подробнее <i class="fas fa-chevron-down ml-2 animate-bounce" style="animation: bounce 1.5s infinite;"></i>
         </a>
       </div>
-    </div>
-    <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce z-10">
-      <a href="#details" class="w-12 h-12 flex items-center justify-center bg-white/20 rounded-full backdrop-blur-sm">
-        <i class="fas fa-chevron-down text-white text-xl"></i>
-      </a>
     </div>
   </section>
 
