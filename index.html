@@ -21,8 +21,7 @@
           },
           fontFamily: {
             'sans': ['"Playfair Display"', 'serif'],
-            'serif': ['"Playfair Display"', 'serif'],
-            'script': ['"Playfair Display"', 'serif']
+            'script': ['"Dancing Script"', 'cursive']
           },
           animation: {
             'float': 'float 6s ease-in-out infinite',
@@ -40,8 +39,7 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     html {
@@ -221,12 +219,27 @@
       background-color: #e63946;
       color: white;
     }
+
+    /* Добавленные стили для формы */
+    .form-input {
+      border: 1px solid #e2e8f0;
+      border-radius: 0.375rem;
+      padding: 0.75rem 1rem;
+      width: 100%;
+      transition: border-color 0.2s;
+    }
+
+    .form-input:focus {
+      border-color: #e63946;
+      outline: none;
+      box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.1);
+    }
   </style>
 </head>
-<body class="font-serif bg-light text-dark" style="font-weight: 400; background-image: url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"100\" height=\"100\" viewBox=\"0 0 100 100\"><path fill=\"none\" stroke=\"%23e6394630\" stroke-width=\"0.5\" d=\"M20,20 Q30,10 40,20 T60,20 T80,20\" /><path fill=\"none\" stroke=\"%23e6394630\" stroke-width=\"0.5\" d=\"M20,40 Q30,30 40,40 T60,40 T80,40\" /><path fill=\"none\" stroke=\"%23e6394630\" stroke-width=\"0.5\" d=\"M20,60 Q30,50 40,60 T60,60 T80,60\" /><path fill=\"none\" stroke=\"%23e6394630\" stroke-width=\"0.5\" d=\"M20,80 Q30,70 40,80 T60,80 T80,80\" /><circle cx=\"10\" cy=\"10\" r=\"1\" fill=\"%23e6394630\" /><circle cx=\"90\" cy=\"10\" r=\"1\" fill=\"%23e6394630\" /><circle cx=\"10\" cy=\"90\" r=\"1\" fill=\"%23e6394630\" /><circle cx=\"90\" cy=\"90\" r=\"1\" fill=\"%23e6394630\" /></svg>
+<body class="font-sans bg-light text-dark" style="font-weight: 400; background-image: url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"100\" height=\"100\" viewBox=\"0 0 100 100\"><path fill=\"none\" stroke=\"%23e6394630\" stroke-width=\"0.5\" d=\"M20,20 Q30,10 40,20 T60,20 T80,20\" /><path fill=\"none\" stroke=\"%23e6394630\" stroke-width=\"0.5\" d=\"M20,40 Q30,30 40,40 T60,40 T80,40\" /><path fill=\"none\" stroke=\"%23e6394630\" stroke-width=\"0.5\" d=\"M20,60 Q30,50 40,60 T60,60 T80,60\" /><path fill=\"none\" stroke=\"%23e6394630\" stroke-width=\"0.5\" d=\"M20,80 Q30,70 40,80 T60,80 T80,80\" /><circle cx=\"10\" cy=\"10\" r=\"1\" fill=\"%23e6394630\" /><circle cx=\"90\" cy=\"10\" r=\"1\" fill=\"%23e6394630\" /><circle cx=\"10\" cy=\"90\" r=\"1\" fill=\"%23e6394630\" /><circle cx=\"90\" cy=\"90\" r=\"1\" fill=\"%23e6394630\" /></svg>')">
   <!-- Hero Section -->
   <section id="home" class="hero-section flex items-center justify-center min-h-screen relative overflow-hidden" style="-webkit-overflow-scrolling: touch;">
-    <div class="absolute inset-0 bg-black/20 z-0" style="background: linear-gradient(rgba(29, 53, 87, 0.7), rgba(29, 53, 87, 0.7)), url('https://i.postimg.cc/vHVHctkQ/IMG-0154.jpg'); background-size: cover; background-position: center; background-attachment: fixed;"></div>
+    <div class="absolute inset-0 z-0" style="background: linear-gradient(rgba(29, 53, 87, 0.7), rgba(29, 53, 87, 0.7)), url('images/hero-bg.jpg'); background-size: cover; background-position: center;"></div>
     <div class="absolute top-20 left-20 text-6xl text-white/20 z-0"><i class="fas fa-heart"></i></div>
     <div class="absolute bottom-20 right-20 text-6xl text-white/20 z-0"><i class="fas fa-heart"></i></div>
     <div class="absolute top-1/4 right-1/4 text-5xl text-white/15 z-0"><i class="fas fa-ring"></i></div>
@@ -259,12 +272,12 @@
       <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
         <div class="w-full md:w-1/2 relative">
           <div class="photo-frame">
-            <img src="https://i.postimg.cc/Dyj3gJGS/IMG-0144.jpg" 
-                 alt="Couple photo" class="w-full h-auto">
+            <img src="images/couple-1.jpg" 
+                 alt="Алексей и Дарья вместе" class="w-full h-auto">
           </div>
           <div class="photo-frame-alt absolute -bottom-4 md:-bottom-8 -right-4 md:-right-8 hidden md:block">
-            <img src="https://i.postimg.cc/yNSKW1kk/IMG-0145.jpg" 
-                 alt="Couple photo" class="w-32 md:w-48 h-auto">
+            <img src="images/couple-2.jpg" 
+                 alt="Алексей и Дарья улыбаются" class="w-32 md:w-48 h-auto">
           </div>
         </div>
         <div class="w-full md:w-1/2 mt-8 md:mt-0">
@@ -370,10 +383,13 @@
         </div>
         
         <div class="mt-10 text-center">
-          <a href="https://yandex.ru/maps/-/CHs5m-3J" target="_blank" 
+          <a href="https://yandex.ru/maps/-/CHs5m-3J" target="_blank" rel="noopener noreferrer" 
              class="btn-primary px-2 md:px-7 py-3 md:py-5 rounded-full font-medium text-lg md:text-xl hover:shadow-lg transition-all">
             <i class="fas fa-location-arrow mr-2 md:mr-3"></i> Маршрут
           </a>
+          <button id="addToCalendar" class="btn-outline px-2 md:px-7 py-3 md:py-5 rounded-full font-medium text-lg md:text-xl hover:shadow-lg transition-all ml-4">
+            <i class="far fa-calendar-plus mr-2 md:mr-3"></i> В календарь
+          </button>
         </div>
       </div>
       
@@ -433,6 +449,59 @@
         </div>
       </div>
       
+      <!-- RSVP Form -->
+      <div class="max-w-2xl mx-auto bg-light p-8 rounded-xl shadow-sm">
+        <h3 class="text-3xl font-serif mb-8 text-center">Подтвердите присутствие</h3>
+        <form id="rsvpForm" class="space-y-6">
+          <div>
+            <label for="name" class="block text-lg mb-2">Ваше имя</label>
+            <input type="text" id="name" name="name" required class="form-input">
+          </div>
+          
+          <div>
+            <label for="email" class="block text-lg mb-2">Email или телефон</label>
+            <input type="text" id="email" name="email" required class="form-input">
+          </div>
+          
+          <div>
+            <p class="text-lg mb-4">Вы придёте на свадьбу?</p>
+            <div class="space-y-3">
+              <label class="flex items-center cursor-pointer">
+                <input type="radio" name="attendance" value="yes" class="hidden" required>
+                <span class="radio-custom"></span>
+                <span class="text-lg">Да, с радостью!</span>
+              </label>
+              <label class="flex items-center cursor-pointer">
+                <input type="radio" name="attendance" value="no" class="hidden">
+                <span class="radio-custom"></span>
+                <span class="text-lg">К сожалению, не смогу</span>
+              </label>
+            </div>
+          </div>
+          
+          <div>
+            <label for="guests" class="block text-lg mb-2">Количество гостей (включая вас)</label>
+            <select id="guests" name="guests" class="form-input">
+              <option value="1">1</option>
+              <option value="2" selected>2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </div>
+          
+          <div>
+            <label for="message" class="block text-lg mb-2">Ваши пожелания (необязательно)</label>
+            <textarea id="message" name="message" rows="3" class="form-input"></textarea>
+          </div>
+          
+          <div class="text-center">
+            <button type="submit" class="btn-primary px-8 py-3 rounded-full font-medium text-lg">
+              Отправить ответ <i class="fas fa-paper-plane ml-2"></i>
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   </section>
 
@@ -509,7 +578,7 @@
       setInterval(updateCountdown, 1000);
       
       // Form submission
-      const form = document.querySelector('form');
+      const form = document.getElementById('rsvpForm');
       if (form) {
         form.addEventListener('submit', function(e) {
           e.preventDefault();
@@ -551,51 +620,9 @@
           e.preventDefault();
           
           const eventTitle = 'Свадьба Алексея и Дарьи';
-          const eventLocation = 'Ресторан "Золотой Сад", ул. Цветочная, д. 25, Москва';
-          const eventStart = '20251025T130000';
-          const eventEnd = '20251025T230000';
+          const eventLocation = 'Ресторан "Ниагара", Елисеевская ул., 14, Орск';
+          const eventStart = '20250830T160000';
+          const eventEnd = '20250831T000000';
           const eventDescription = 'Приглашаем вас на нашу свадьбу! Подробности: https://wedding-alexei-darya.ru';
           
-          const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(eventTitle)}&dates=${eventStart}/${eventEnd}&details=${encodeURIComponent(eventDescription)}&location=${encodeURIComponent(eventLocation)}&sf=true&output=xml`;
-          
-          window.open(googleCalendarUrl, '_blank');
-        });
-      }
-      
-      // Smooth scrolling for anchor links
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-          e.preventDefault();
-          
-          const targetId = this.getAttribute('href');
-          const targetElement = document.querySelector(targetId);
-          
-          if (targetElement) {
-            window.scrollTo({
-              top: targetElement.offsetTop - 80,
-              behavior: 'smooth'
-            });
-          }
-        });
-      });
-      
-      // Radio button styling
-      document.querySelectorAll('input[type="radio"]').forEach(radio => {
-        radio.addEventListener('change', function() {
-          const allCustomRadios = document.querySelectorAll('.radio-custom');
-          allCustomRadios.forEach(customRadio => {
-            customRadio.style.borderColor = '#e63946';
-          });
-          
-          if (this.checked) {
-            const customRadio = this.nextElementSibling;
-            if (customRadio) {
-              customRadio.style.borderColor = '#e63946';
-              customRadio.style.borderWidth = '6px';
-            }
-          }
-        });
-      });
-    });
-  </script>
-</html>
+          const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(eventTitle)}&dates=${eventStart
