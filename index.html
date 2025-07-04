@@ -2,12 +2,9 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="HandheldFriendly" content="true">
   <meta name="theme-color" content="#e63946">
   <title>Приглашение на свадьбу Алексея и Дарьи</title>
   <script src="https://cdn.tailwindcss.com/3.4.1"></script>
@@ -28,17 +25,27 @@
             'script': ['"Playfair Display"', 'serif']
           },
           animation: {
+            'float': 'float 6s ease-in-out infinite',
             'pulse-slow': 'pulse 3s ease infinite'
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-15px)' }
+            }
           }
         }
       }
     }
   </script>
-  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap"></noscript>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     html {
+      scroll-behavior: smooth;
       -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
       -webkit-tap-highlight-color: rgba(0,0,0,0);
@@ -46,13 +53,6 @@
     
     body {
       -webkit-overflow-scrolling: touch;
-      text-rendering: optimizeLegibility;
-      -webkit-font-smoothing: antialiased;
-    }
-    
-    /* Fallback for older browsers */
-    .animate-float {
-      animation: none;
     }
 
     .floral-divider {
@@ -260,7 +260,7 @@
         <div class="w-full md:w-1/2 relative">
           <div class="photo-frame">
             <img src="https://i.postimg.cc/Dyj3gJGS/IMG-0144.jpg" 
-                 alt="Couple photo" class="w-full h-auto" loading="lazy" width="600" height="400">
+                 alt="Couple photo" class="w-full h-auto">
           </div>
           <div class="photo-frame-alt absolute -bottom-4 md:-bottom-8 -right-4 md:-right-8 hidden md:block">
             <img src="https://i.postimg.cc/yNSKW1kk/IMG-0145.jpg" 
@@ -442,8 +442,7 @@
       <h2 class="text-4xl font-serif mb-8">Список подарков</h2>
       <p class="text-xl text-gray-600 mb-12 max-w-2xl mx-auto">Ваше присутствие - уже подарок для нас! Но если вы хотите сделать нам сюрприз, вот пару идей:</p>
       
-      <div class="flex flex-wrap -mx-4 mb-12">
-        <div class="w-full md:w-1/2 px-4 mb-8 md:mb-0">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
         <div class="bg-light p-6 rounded-xl shadow-sm">
           <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 text-primary">
             <i class="fas fa-plane text-2xl"></i>
@@ -487,7 +486,6 @@
     </div>
   </footer>
 
-  <script src="https://cdn.polyfill.io/v3/polyfill.min.js?features=default,es6,Array.prototype.includes,Object.entries,Object.values,Promise,fetch,Element.prototype.classList,NodeList.prototype.forEach"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       // Countdown timer
@@ -564,42 +562,8 @@
         });
       }
       
-      // Simple smooth scrolling fallback
-      var scrollToTarget = function(target) {
-        var targetElement = document.querySelector(target);
-        if (targetElement) {
-          var targetPosition = targetElement.offsetTop - 80;
-          var startPosition = window.pageYOffset;
-          var distance = targetPosition - startPosition;
-          var duration = 500;
-          var start = null;
-          
-          function step(timestamp) {
-            if (!start) start = timestamp;
-            var progress = timestamp - start;
-            window.scrollTo(0, easeInOutCubic(progress, startPosition, distance, duration));
-            if (progress < duration) window.requestAnimationFrame(step);
-          }
-          
-          function easeInOutCubic(t, b, c, d) {
-            t /= d/2;
-            if (t < 1) return c/2*t*t*t + b;
-            t -= 2;
-            return c/2*(t*t*t + 2) + b;
-          }
-          
-          window.requestAnimationFrame(step);
-        }
-      };
-      
-      // Anchor links
-      var anchorLinks = document.querySelectorAll('a[href^="#"]');
-      for (var i = 0; i < anchorLinks.length; i++) {
-        anchorLinks[i].addEventListener('click', function(e) {
-          e.preventDefault();
-          scrollToTarget(this.getAttribute('href'));
-        });
-      }
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
           e.preventDefault();
           
