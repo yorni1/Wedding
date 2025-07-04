@@ -7,7 +7,11 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="theme-color" content="#e63946">
   <meta name="description" content="Приглашение на свадьбу Алексея и Дарьи 30 августа 2025 года. Ресторан Ниагара, Орск">
+  <meta property="og:title" content="Приглашение на свадьбу Алексея и Дарьи">
+  <meta property="og:description" content="Приглашение на свадьбу Алексея и Дарьи 30 августа 2025 года. Ресторан Ниагара, Орск">
+  <meta property="og:type" content="website">
   <title>Приглашение на свадьбу Алексея и Дарьи</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💍</text></svg>">
   <script src="https://cdn.tailwindcss.com/3.4.1"></script>
   <script>
     tailwind.config = {
@@ -174,6 +178,11 @@
       .timeline-item::before {
         left: -29px;
       }
+      
+      .btn-primary {
+        min-width: 48px;
+        min-height: 48px;
+      }
     }
   </style>
 </head>
@@ -181,10 +190,10 @@
   <!-- Hero Section -->
   <section id="home" class="hero-section flex items-center justify-center min-h-screen relative overflow-hidden" style="-webkit-overflow-scrolling: touch;">
     <div class="absolute inset-0 bg-black/20 z-0" style="background: linear-gradient(rgba(29, 53, 87, 0.7), rgba(29, 53, 87, 0.7)), url('https://i.postimg.cc/vHVHctkQ/IMG-0154.jpg'); background-size: cover; background-position: center;">
-      <div class="absolute top-20 left-20 text-6xl text-white/20 z-0 hidden md:block" aria-hidden="true"><i class="fas fa-heart"></i></div>
-      <div class="absolute bottom-20 right-20 text-6xl text-white/20 z-0 hidden md:block" aria-hidden="true"><i class="fas fa-heart"></i></div>
-      <div class="absolute top-1/4 right-1/4 text-5xl text-white/15 z-0 hidden md:block" aria-hidden="true"><i class="fas fa-ring"></i></div>
-      <div class="absolute bottom-1/4 left-1/4 text-5xl text-white/15 z-0 hidden md:block" aria-hidden="true"><i class="fas fa-ring"></i></div>
+      <div class="absolute top-20 left-20 text-6xl text-white/20 z-0 hidden md:block" aria-hidden="true" role="img"><i class="fas fa-heart"></i></div>
+      <div class="absolute bottom-20 right-20 text-6xl text-white/20 z-0 hidden md:block" aria-hidden="true" role="img"><i class="fas fa-heart"></i></div>
+      <div class="absolute top-1/4 right-1/4 text-5xl text-white/15 z-0 hidden md:block" aria-hidden="true" role="img"><i class="fas fa-ring"></i></div>
+      <div class="absolute bottom-1/4 left-1/4 text-5xl text-white/15 z-0 hidden md:block" aria-hidden="true" role="img"><i class="fas fa-ring"></i></div>
     </div>
     <div class="text-center text-white px-4 z-10 max-w-4xl mx-auto">
       <h2 class="text-2xl sm:text-3xl md:text-4xl font-serif mb-6 md:mb-8 tracking-widest" style="animation: float 6s ease-in-out infinite;">30 | 08 | 2025</h2>
@@ -207,19 +216,23 @@
 
   <!-- Couple Story -->
   <section class="py-20 px-4 bg-light relative overflow-hidden">
-    <div class="absolute top-10 right-10 text-5xl text-primary/10 hidden md:block" aria-hidden="true"><i class="fas fa-heart"></i></div>
-    <div class="absolute bottom-10 left-10 text-5xl text-primary/10 hidden md:block" aria-hidden="true"><i class="fas fa-heart"></i></div>
+    <div class="absolute top-10 right-10 text-5xl text-primary/10 hidden md:block" aria-hidden="true" role="img"><i class="fas fa-heart"></i></div>
+    <div class="absolute bottom-10 left-10 text-5xl text-primary/10 hidden md:block" aria-hidden="true" role="img"><i class="fas fa-heart"></i></div>
     <div class="max-w-6xl mx-auto">
       <h2 class="text-4xl font-serif text-center mb-16">Дорогие родные и близкие!</h2>
       <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
         <div class="w-full md:w-1/2 relative">
           <div class="photo-frame">
             <img src="https://i.postimg.cc/Dyj3gJGS/IMG-0144.jpg" 
-                 alt="Алексей и Дарья вместе в парке" class="w-full h-auto">
+                 alt="Алексей и Дарья вместе в парке" 
+                 class="w-full h-auto"
+                 loading="lazy">
           </div>
           <div class="photo-frame-alt absolute -bottom-4 md:-bottom-8 -right-4 md:-right-8 hidden md:block">
             <img src="https://i.postimg.cc/yNSKW1kk/IMG-0145.jpg" 
-                 alt="Алексей и Дарья улыбаются" class="w-32 md:w-48 h-auto">
+                 alt="Алексей и Дарья улыбаются" 
+                 class="w-32 md:w-48 h-auto"
+                 loading="lazy">
           </div>
         </div>
         <div class="w-full md:w-1/2 mt-8 md:mt-0">
@@ -235,15 +248,18 @@
   <!-- Countdown -->
   <section class="py-16 bg-accent text-dark relative overflow-hidden">
     <div class="absolute inset-0 opacity-10 z-0">
-      <div class="absolute top-10 left-10 text-4xl hidden md:block" aria-hidden="true"><i class="fas fa-ring"></i></div>
-      <div class="absolute top-1/4 right-20 text-5xl hidden md:block" aria-hidden="true"><i class="fas fa-heart"></i></div>
-      <div class="absolute bottom-20 left-1/3 text-6xl hidden md:block" aria-hidden="true"><i class="fas fa-glass-cheers"></i></div>
-      <div class="absolute top-1/3 left-1/4 text-3xl hidden md:block" aria-hidden="true"><i class="fas fa-dove"></i></div>
-      <div class="absolute bottom-10 right-10 text-4xl hidden md:block" aria-hidden="true"><i class="fas fa-ring"></i></div>
-      <div class="absolute top-20 right-1/3 text-5xl hidden md:block" aria-hidden="true"><i class="fas fa-heart"></i></div>
+      <div class="absolute top-10 left-10 text-4xl hidden md:block" aria-hidden="true" role="img"><i class="fas fa-ring"></i></div>
+      <div class="absolute top-1/4 right-20 text-5xl hidden md:block" aria-hidden="true" role="img"><i class="fas fa-heart"></i></div>
+      <div class="absolute bottom-20 left-1/3 text-6xl hidden md:block" aria-hidden="true" role="img"><i class="fas fa-glass-cheers"></i></div>
+      <div class="absolute top-1/3 left-1/4 text-3xl hidden md:block" aria-hidden="true" role="img"><i class="fas fa-dove"></i></div>
+      <div class="absolute bottom-10 right-10 text-4xl hidden md:block" aria-hidden="true" role="img"><i class="fas fa-ring"></i></div>
+      <div class="absolute top-20 right-1/3 text-5xl hidden md:block" aria-hidden="true" role="img"><i class="fas fa-heart"></i></div>
     </div>
     <div class="max-w-4xl mx-auto px-4 text-center">
       <h3 class="text-2xl font-serif mb-6">До нашего торжества осталось:</h3>
+      <noscript>
+        <p class="text-xl mb-6">До свадьбы осталось менее года!</p>
+      </noscript>
       <div class="flex justify-center gap-2 sm:gap-4 md:gap-8 flex-wrap">
         <div class="countdown-item bg-white/80 p-2 sm:p-4 rounded-lg shadow-sm">
           <div class="text-2xl sm:text-3xl font-bold" id="days">00</div>
