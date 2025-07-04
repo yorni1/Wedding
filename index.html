@@ -6,6 +6,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="theme-color" content="#e63946">
+  <meta name="description" content="Приглашение на свадьбу Алексея и Дарьи 30 августа 2025 года. Ресторан Ниагара, Орск">
   <title>Приглашение на свадьбу Алексея и Дарьи</title>
   <script src="https://cdn.tailwindcss.com/3.4.1"></script>
   <script>
@@ -26,12 +27,17 @@
           },
           animation: {
             'float': 'float 6s ease-in-out infinite',
-            'pulse-slow': 'pulse 3s ease infinite'
+            'pulse-slow': 'pulse 3s ease infinite',
+            'bounce': 'bounce 1.5s infinite'
           },
           keyframes: {
             float: {
               '0%, 100%': { transform: 'translateY(0)' },
               '50%': { transform: 'translateY(-15px)' }
+            },
+            bounce: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(5px)' }
             }
           }
         }
@@ -52,6 +58,7 @@
     
     body {
       -webkit-overflow-scrolling: touch;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="none" stroke="%23e6394630" stroke-width="0.5" d="M20,20 Q30,10 40,20 T60,20 T80,20" /><path fill="none" stroke="%23e6394630" stroke-width="0.5" d="M20,40 Q30,30 40,40 T60,40 T80,40" /><path fill="none" stroke="%23e6394630" stroke-width="0.5" d="M20,60 Q30,50 40,60 T60,60 T80,60" /><path fill="none" stroke="%23e6394630" stroke-width="0.5" d="M20,80 Q30,70 40,80 T60,80 T80,80" /><circle cx="10" cy="10" r="1" fill="%23e6394630" /><circle cx="90" cy="10" r="1" fill="%23e6394630" /><circle cx="10" cy="90" r="1" fill="%23e6394630" /><circle cx="90" cy="90" r="1" fill="%23e6394630" /></svg>');
     }
 
     .floral-divider {
@@ -93,73 +100,9 @@
     
     .heart-date {
       position: relative;
-    }
-    
-    .heart-icon {
-      position: absolute;
-      top: -10px;
-      right: -10px;
-      color: #e63946;
-      animation: pulse 1.5s infinite;
-    }
-    
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.2); }
-      100% { transform: scale(1); }
-    }
-    
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(5px); }
-    }
-    
-    .calendar-day {
-      width: 40px;
-      height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all 0.3s ease;
-    }
-    
-    .calendar-day:hover:not(.empty-day):not(.heart-date) {
-      background-color: rgba(230, 57, 70, 0.05);
-      transform: translateY(-2px);
-    }
-    
-    .heart-date {
       background-color: rgba(230, 57, 70, 0.08);
       color: #e63946;
       font-weight: 600;
-    }
-    
-    .radio-custom {
-      position: relative;
-      display: inline-block;
-      width: 20px;
-      height: 20px;
-      border: 2px solid #e63946;
-      border-radius: 50%;
-      margin-right: 8px;
-    }
-    
-    .radio-custom::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 10px;
-      height: 10px;
-      background-color: #e63946;
-      border-radius: 50%;
-      opacity: 0;
-      transition: opacity 0.2s;
-    }
-    
-    input[type="radio"]:checked + .radio-custom::after {
-      opacity: 1;
     }
     
     .countdown-item {
@@ -219,20 +162,32 @@
       .absolute.bottom-1\/4.left-1\/4 {
         display: none;
       }
+      
+      .timeline {
+        padding-left: 2rem;
+      }
+      
+      .timeline-item {
+        padding-left: 1rem;
+      }
+      
+      .timeline-item::before {
+        left: -29px;
+      }
     }
   </style>
 </head>
-<body class="font-serif bg-light text-dark" style="font-weight: 400; background-image: url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"100\" height=\"100\" viewBox=\"0 0 100 100\"><path fill=\"none\" stroke=\"%23e6394630\" stroke-width=\"0.5\" d=\"M20,20 Q30,10 40,20 T60,20 T80,20\" /><path fill=\"none\" stroke=\"%23e6394630\" stroke-width=\"0.5\" d=\"M20,40 Q30,30 40,40 T60,40 T80,40\" /><path fill=\"none\" stroke=\"%23e6394630\" stroke-width=\"0.5\" d=\"M20,60 Q30,50 40,60 T60,60 T80,60\" /><path fill=\"none\" stroke=\"%23e6394630\" stroke-width=\"0.5\" d=\"M20,80 Q30,70 40,80 T60,80 T80,80\" /><circle cx=\"10\" cy=\"10\" r=\"1\" fill=\"%23e6394630\" /><circle cx=\"90\" cy=\"10\" r=\"1\" fill=\"%23e6394630\" /><circle cx=\"10\" cy=\"90\" r=\"1\" fill=\"%23e6394630\" /><circle cx=\"90\" cy=\"90\" r=\"1\" fill=\"%23e6394630\" /></svg>
+<body class="font-serif bg-light text-dark" style="font-weight: 400;">
   <!-- Hero Section -->
   <section id="home" class="hero-section flex items-center justify-center min-h-screen relative overflow-hidden" style="-webkit-overflow-scrolling: touch;">
     <div class="absolute inset-0 bg-black/20 z-0" style="background: linear-gradient(rgba(29, 53, 87, 0.7), rgba(29, 53, 87, 0.7)), url('https://i.postimg.cc/vHVHctkQ/IMG-0154.jpg'); background-size: cover; background-position: center;">
-      <div class="absolute top-20 left-20 text-6xl text-white/20 z-0 hidden md:block"><i class="fas fa-heart"></i></div>
-      <div class="absolute bottom-20 right-20 text-6xl text-white/20 z-0 hidden md:block"><i class="fas fa-heart"></i></div>
-      <div class="absolute top-1/4 right-1/4 text-5xl text-white/15 z-0 hidden md:block"><i class="fas fa-ring"></i></div>
-      <div class="absolute bottom-1/4 left-1/4 text-5xl text-white/15 z-0 hidden md:block"><i class="fas fa-ring"></i></div>
+      <div class="absolute top-20 left-20 text-6xl text-white/20 z-0 hidden md:block" aria-hidden="true"><i class="fas fa-heart"></i></div>
+      <div class="absolute bottom-20 right-20 text-6xl text-white/20 z-0 hidden md:block" aria-hidden="true"><i class="fas fa-heart"></i></div>
+      <div class="absolute top-1/4 right-1/4 text-5xl text-white/15 z-0 hidden md:block" aria-hidden="true"><i class="fas fa-ring"></i></div>
+      <div class="absolute bottom-1/4 left-1/4 text-5xl text-white/15 z-0 hidden md:block" aria-hidden="true"><i class="fas fa-ring"></i></div>
     </div>
     <div class="text-center text-white px-4 z-10 max-w-4xl mx-auto">
-      <h2 class="text-2xl sm:text-3xl md:text-4xl font-serif mb-6 md:mb-8 tracking-widest animate-float">30 | 08 | 2025</h2>
+      <h2 class="text-2xl sm:text-3xl md:text-4xl font-serif mb-6 md:mb-8 tracking-widest" style="animation: float 6s ease-in-out infinite;">30 | 08 | 2025</h2>
       <div class="flex flex-col items-center gap-1 md:gap-2 mb-6 md:mb-8">
         <h1 class="text-4xl sm:text-5xl md:text-7xl font-script text-accent mb-2 md:mb-4">Wedding Day</h1>
         <p class="text-lg sm:text-xl md:text-2xl tracking-wider font-light">it's our</p>
@@ -241,7 +196,7 @@
       <h3 class="text-2xl sm:text-3xl md:text-7xl font-serif tracking-wider mb-6 md:mb-8">Алексей & Дарья</h3>
       <div class="flex flex-wrap justify-center gap-4">
         <a href="#details" class="bg-white/20 backdrop-blur-sm border-2 border-white/30 px-8 py-3 rounded-full font-medium hover:bg-white/30 transition-all duration-300">
-          Подробнее <i class="fas fa-chevron-down ml-2 animate-bounce" style="animation: bounce 1.5s infinite;"></i>
+          Подробнее <i class="fas fa-chevron-down ml-2" style="animation: bounce 1.5s infinite;"></i>
         </a>
       </div>
     </div>
@@ -252,8 +207,8 @@
 
   <!-- Couple Story -->
   <section class="py-20 px-4 bg-light relative overflow-hidden">
-    <div class="absolute top-10 right-10 text-5xl text-primary/10 hidden md:block"><i class="fas fa-heart"></i></div>
-    <div class="absolute bottom-10 left-10 text-5xl text-primary/10 hidden md:block"><i class="fas fa-heart"></i></div>
+    <div class="absolute top-10 right-10 text-5xl text-primary/10 hidden md:block" aria-hidden="true"><i class="fas fa-heart"></i></div>
+    <div class="absolute bottom-10 left-10 text-5xl text-primary/10 hidden md:block" aria-hidden="true"><i class="fas fa-heart"></i></div>
     <div class="max-w-6xl mx-auto">
       <h2 class="text-4xl font-serif text-center mb-16">Дорогие родные и близкие!</h2>
       <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
@@ -280,12 +235,12 @@
   <!-- Countdown -->
   <section class="py-16 bg-accent text-dark relative overflow-hidden">
     <div class="absolute inset-0 opacity-10 z-0">
-      <div class="absolute top-10 left-10 text-4xl hidden md:block"><i class="fas fa-ring"></i></div>
-      <div class="absolute top-1/4 right-20 text-5xl hidden md:block"><i class="fas fa-heart"></i></div>
-      <div class="absolute bottom-20 left-1/3 text-6xl hidden md:block"><i class="fas fa-glass-cheers"></i></div>
-      <div class="absolute top-1/3 left-1/4 text-3xl hidden md:block"><i class="fas fa-dove"></i></div>
-      <div class="absolute bottom-10 right-10 text-4xl hidden md:block"><i class="fas fa-ring"></i></div>
-      <div class="absolute top-20 right-1/3 text-5xl hidden md:block"><i class="fas fa-heart"></i></div>
+      <div class="absolute top-10 left-10 text-4xl hidden md:block" aria-hidden="true"><i class="fas fa-ring"></i></div>
+      <div class="absolute top-1/4 right-20 text-5xl hidden md:block" aria-hidden="true"><i class="fas fa-heart"></i></div>
+      <div class="absolute bottom-20 left-1/3 text-6xl hidden md:block" aria-hidden="true"><i class="fas fa-glass-cheers"></i></div>
+      <div class="absolute top-1/3 left-1/4 text-3xl hidden md:block" aria-hidden="true"><i class="fas fa-dove"></i></div>
+      <div class="absolute bottom-10 right-10 text-4xl hidden md:block" aria-hidden="true"><i class="fas fa-ring"></i></div>
+      <div class="absolute top-20 right-1/3 text-5xl hidden md:block" aria-hidden="true"><i class="fas fa-heart"></i></div>
     </div>
     <div class="max-w-4xl mx-auto px-4 text-center">
       <h3 class="text-2xl font-serif mb-6">До нашего торжества осталось:</h3>
@@ -319,7 +274,7 @@
       <h2 class="text-4xl font-serif text-center mb-16">Детали торжества</h2>
       
       <!-- Venue Information -->
-      <div class="mb-20 bg-light p-12 rounded-xl shadow-sm max-w-3xl mx-auto">
+      <div class="mb-20 bg-light p-8 sm:p-12 rounded-xl shadow-sm max-w-3xl mx-auto">
         <div class="text-center mb-10">
           <div class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
             <i class="fas fa-map-marker-alt text-3xl text-primary"></i>
@@ -370,7 +325,7 @@
         </div>
         
         <div class="mt-10 text-center">
-          <a href="https://yandex.ru/maps/-/CHs5m-3J" target="_blank" 
+          <a href="https://yandex.ru/maps/-/CHs5m-3J" target="_blank" rel="noopener noreferrer"
              class="btn-primary px-2 md:px-7 py-3 md:py-5 rounded-full font-medium text-lg md:text-xl hover:shadow-lg transition-all">
             <i class="fas fa-location-arrow mr-2 md:mr-3"></i> Маршрут
           </a>
