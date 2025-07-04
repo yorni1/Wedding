@@ -22,7 +22,8 @@
             secondary: '#f1faee',
             accent: '#a8dadc',
             dark: '#1d3557',
-            light: '#f8f9fa'
+            light: '#f8f9fa',
+            gold: '#d4af37'
           },
           fontFamily: {
             'sans': ['"Playfair Display"', 'serif'],
@@ -32,7 +33,8 @@
           animation: {
             'float': 'float 6s ease-in-out infinite',
             'pulse-slow': 'pulse 3s ease infinite',
-            'bounce': 'bounce 1.5s infinite'
+            'bounce': 'bounce 1.5s infinite',
+            'heartbeat': 'heartbeat 1.5s ease infinite'
           },
           keyframes: {
             float: {
@@ -42,6 +44,13 @@
             bounce: {
               '0%, 100%': { transform: 'translateY(0)' },
               '50%': { transform: 'translateY(5px)' }
+            },
+            heartbeat: {
+              '0%': { transform: 'scale(1)' },
+              '25%': { transform: 'scale(1.1)' },
+              '50%': { transform: 'scale(1)' },
+              '75%': { transform: 'scale(1.1)' },
+              '100%': { transform: 'scale(1)' }
             }
           }
         }
@@ -62,13 +71,14 @@
     
     body {
       -webkit-overflow-scrolling: touch;
+      background-color: #f8f9fa;
       background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="none" stroke="%23e6394630" stroke-width="0.5" d="M20,20 Q30,10 40,20 T60,20 T80,20" /><path fill="none" stroke="%23e6394630" stroke-width="0.5" d="M20,40 Q30,30 40,40 T60,40 T80,40" /><path fill="none" stroke="%23e6394630" stroke-width="0.5" d="M20,60 Q30,50 40,60 T60,60 T80,60" /><path fill="none" stroke="%23e6394630" stroke-width="0.5" d="M20,80 Q30,70 40,80 T60,80 T80,80" /><circle cx="10" cy="10" r="1" fill="%23e6394630" /><circle cx="90" cy="10" r="1" fill="%23e6394630" /><circle cx="10" cy="90" r="1" fill="%23e6394630" /><circle cx="90" cy="90" r="1" fill="%23e6394630" /></svg>');
     }
 
     .floral-divider {
       position: relative;
       height: 30px;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23f8f9fa' fill-opacity='1' d='M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,181.3C960,181,1056,235,1152,234.7C1248,235,1344,181,1392,154.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3Cpath fill='%23e63946' fill-opacity='0.3' d='M200,150 Q220,130 240,150 T280,150'/%3E%3Cpath fill='%23e63946' fill-opacity='0.3' d='M400,170 Q420,150 440,170 T480,170'/%3E%3Cpath fill='%23e63946' fill-opacity='0.3' d='M600,190 Q620,170 640,190 T680,190'/%3E%3Cpath fill='%23e63946' fill-opacity='0.3' d='M800,210 Q820,190 840,210 T880,210'/%3E%3Cpath fill='%23e63946' fill-opacity='0.3' d='M1000,230 Q1020,210 1040,230 T1080,230'/%3E%3Cpath fill='%23e63946' fill-opacity='0.3' d='M1200,250 Q1220,230 1240,250 T1280,250'/%3E%3C/svg%3E");
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23f8f9fa' fill-opacity='1' d='M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,181.3C960,181,1056,235,1152,234.7C1248,235,1344,181,1392,154.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E");
       background-repeat: no-repeat;
       background-size: cover;
     }
@@ -102,52 +112,88 @@
       background-repeat: repeat-y;
     }
     
-    .heart-date {
-      position: relative;
-      background-color: rgba(230, 57, 70, 0.08);
-      color: #e63946;
-      font-weight: 600;
-    }
-    
     .countdown-item {
       min-width: 80px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%);
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255,255,255,0.3);
     }
     
     .photo-frame {
-      border: 8px solid white;
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-      transform: rotate(-3deg);
-      transition: transform 0.3s ease;
+      border: 12px solid white;
+      box-shadow: 0 15px 30px -10px rgba(0, 0, 0, 0.15);
+      transform: rotate(-2deg);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      background: white;
     }
     
     .photo-frame:hover {
-      transform: rotate(0deg) scale(1.05);
+      transform: rotate(0deg) scale(1.03);
+      box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.2);
     }
     
     .photo-frame-alt {
-      transform: rotate(3deg);
+      transform: rotate(2deg);
     }
     
     .photo-frame-alt:hover {
-      transform: rotate(0deg) scale(1.05);
+      transform: rotate(0deg) scale(1.03);
     }
     
     .btn-primary {
-      background-color: #e63946;
+      background: linear-gradient(135deg, #e63946 0%, #c1121f 100%);
       color: white;
       transition: all 0.3s ease;
       letter-spacing: 1px;
-      font-weight: normal;
+      font-weight: 500;
       min-width: 44px;
       min-height: 44px;
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      border: none;
+      box-shadow: 0 4px 15px rgba(198, 15, 34, 0.3);
     }
     
     .btn-primary:hover {
-      background-color: #c1121f;
-      transform: translateY(-2px);
+      background: linear-gradient(135deg, #c1121f 0%, #a50e1a 100%);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(198, 15, 34, 0.4);
+    }
+    
+    .btn-secondary {
+      background: transparent;
+      color: white;
+      border: 2px solid rgba(255,255,255,0.3);
+      transition: all 0.3s ease;
+      backdrop-filter: blur(5px);
+    }
+    
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.1);
+      border-color: white;
+    }
+    
+    .heart-beat {
+      animation: heartbeat 1.5s ease infinite;
+    }
+    
+    .section-title {
+      position: relative;
+      display: inline-block;
+      text-align: center;
+      width: 100%;
+    }
+    
+    .section-title:after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60%;
+      height: 3px;
+      background: linear-gradient(90deg, transparent 0%, #e63946 50%, transparent 100%);
     }
     
     @media (prefers-reduced-motion: reduce) {
@@ -182,6 +228,16 @@
       .btn-primary {
         min-width: 48px;
         min-height: 48px;
+        padding: 0.75rem 1.5rem;
+      }
+      
+      .photo-frame {
+        border-width: 8px;
+      }
+      
+      .section-title:after {
+        bottom: -5px;
+        height: 2px;
       }
     }
   </style>
@@ -190,10 +246,10 @@
   <!-- Hero Section -->
   <section id="home" class="hero-section flex items-center justify-center min-h-screen relative overflow-hidden" style="-webkit-overflow-scrolling: touch;">
     <div class="absolute inset-0 bg-black/20 z-0" style="background: linear-gradient(rgba(29, 53, 87, 0.7), rgba(29, 53, 87, 0.7)), url('https://i.postimg.cc/vHVHctkQ/IMG-0154.jpg'); background-size: cover; background-position: center;">
-      <div class="absolute top-20 left-20 text-6xl text-white/20 z-0 hidden md:block" aria-hidden="true" role="img"><i class="fas fa-heart"></i></div>
-      <div class="absolute bottom-20 right-20 text-6xl text-white/20 z-0 hidden md:block" aria-hidden="true" role="img"><i class="fas fa-heart"></i></div>
-      <div class="absolute top-1/4 right-1/4 text-5xl text-white/15 z-0 hidden md:block" aria-hidden="true" role="img"><i class="fas fa-ring"></i></div>
-      <div class="absolute bottom-1/4 left-1/4 text-5xl text-white/15 z-0 hidden md:block" aria-hidden="true" role="img"><i class="fas fa-ring"></i></div>
+      <div class="absolute top-20 left-20 text-6xl text-white/20 z-0 hidden md:block" aria-hidden="true" role="img"><i class="fas fa-heart heart-beat"></i></div>
+      <div class="absolute bottom-20 right-20 text-6xl text-white/20 z-0 hidden md:block" aria-hidden="true" role="img"><i class="fas fa-heart heart-beat"></i></div>
+      <div class="absolute top-1/4 right-1/4 text-5xl text-white/15 z-0 hidden md:block" aria-hidden="true" role="img"><i class="fas fa-ring" style="animation: float 6s ease-in-out infinite;"></i></div>
+      <div class="absolute bottom-1/4 left-1/4 text-5xl text-white/15 z-0 hidden md:block" aria-hidden="true" role="img"><i class="fas fa-ring" style="animation: float 6s ease-in-out infinite;"></i></div>
     </div>
     <div class="text-center text-white px-4 z-10 max-w-4xl mx-auto">
       <h2 class="text-2xl sm:text-3xl md:text-4xl font-serif mb-6 md:mb-8 tracking-widest" style="animation: float 6s ease-in-out infinite;">30 | 08 | 2025</h2>
@@ -204,7 +260,7 @@
       <div class="w-20 md:w-24 h-[1px] bg-white/30 mx-auto mb-6 md:mb-8"></div>
       <h3 class="text-2xl sm:text-3xl md:text-7xl font-serif tracking-wider mb-6 md:mb-8">Алексей & Дарья</h3>
       <div class="flex flex-wrap justify-center gap-4">
-        <a href="#details" class="bg-white/20 backdrop-blur-sm border-2 border-white/30 px-8 py-3 rounded-full font-medium hover:bg-white/30 transition-all duration-300">
+        <a href="#details" class="btn-secondary px-8 py-3 rounded-full font-medium hover:bg-white/30 transition-all duration-300">
           Подробнее <i class="fas fa-chevron-down ml-2" style="animation: bounce 1.5s infinite;"></i>
         </a>
       </div>
@@ -216,10 +272,10 @@
 
   <!-- Couple Story -->
   <section class="py-20 px-4 bg-light relative overflow-hidden">
-    <div class="absolute top-10 right-10 text-5xl text-primary/10 hidden md:block" aria-hidden="true" role="img"><i class="fas fa-heart"></i></div>
-    <div class="absolute bottom-10 left-10 text-5xl text-primary/10 hidden md:block" aria-hidden="true" role="img"><i class="fas fa-heart"></i></div>
+    <div class="absolute top-10 right-10 text-5xl text-primary/10 hidden md:block" aria-hidden="true" role="img"><i class="fas fa-heart heart-beat"></i></div>
+    <div class="absolute bottom-10 left-10 text-5xl text-primary/10 hidden md:block" aria-hidden="true" role="img"><i class="fas fa-heart heart-beat"></i></div>
     <div class="max-w-6xl mx-auto">
-      <h2 class="text-4xl font-serif text-center mb-16">Дорогие родные и близкие!</h2>
+      <h2 class="text-4xl font-serif text-center mb-16 section-title">Дорогие родные и близкие!</h2>
       <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
         <div class="w-full md:w-1/2 relative">
           <div class="photo-frame">
@@ -239,6 +295,11 @@
           <div class="prose prose-lg md:prose-xl max-w-none">
             <p class="text-lg md:text-xl mb-4 md:mb-6 tracking-wide leading-relaxed">Мы давно ждали момента, когда сможем разделить с вами самый важный и счастливый день в нашей жизни.</p>
             <p class="text-lg md:text-xl mb-4 md:mb-6 tracking-wide leading-relaxed">Совсем скоро состоится наша свадьба! Мы рады пригласить вас стать свидетелями этого торжества и разделить с нами самые яркие моменты!</p>
+            <div class="flex justify-center md:justify-start mt-8">
+              <div class="bg-primary/10 p-4 rounded-lg border border-primary/20">
+                <p class="text-primary font-medium text-center">"Любовь - это не смотреть друг на друга,<br>а смотреть в одном направлении"</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -248,14 +309,14 @@
   <!-- Countdown -->
   <section class="py-16 bg-accent text-dark relative overflow-hidden">
     <div class="absolute inset-0 opacity-10 z-0">
-      <div class="absolute top-10 left-10 text-4xl hidden md:block" aria-hidden="true" role="img"><i class="fas fa-ring"></i></div>
-      <div class="absolute top-1/4 right-20 text-5xl hidden md:block" aria-hidden="true" role="img"><i class="fas fa-heart"></i></div>
+      <div class="absolute top-10 left-10 text-4xl hidden md:block" aria-hidden="true" role="img"><i class="fas fa-ring" style="animation: float 6s ease-in-out infinite;"></i></div>
+      <div class="absolute top-1/4 right-20 text-5xl hidden md:block" aria-hidden="true" role="img"><i class="fas fa-heart heart-beat"></i></div>
       <div class="absolute bottom-20 left-1/3 text-6xl hidden md:block" aria-hidden="true" role="img"><i class="fas fa-glass-cheers"></i></div>
-      <div class="absolute top-1/3 left-1/4 text-3xl hidden md:block" aria-hidden="true" role="img"><i class="fas fa-dove"></i></div>
-      <div class="absolute bottom-10 right-10 text-4xl hidden md:block" aria-hidden="true" role="img"><i class="fas fa-ring"></i></div>
-      <div class="absolute top-20 right-1/3 text-5xl hidden md:block" aria-hidden="true" role="img"><i class="fas fa-heart"></i></div>
+      <div class="absolute top-1/3 left-1/4 text-3xl hidden md:block" aria-hidden="true" role="img"><i class="fas fa-dove" style="animation: float 4s ease-in-out infinite;"></i></div>
+      <div class="absolute bottom-10 right-10 text-4xl hidden md:block" aria-hidden="true" role="img"><i class="fas fa-ring" style="animation: float 6s ease-in-out infinite;"></i></div>
+      <div class="absolute top-20 right-1/3 text-5xl hidden md:block" aria-hidden="true" role="img"><i class="fas fa-heart heart-beat"></i></div>
     </div>
-    <div class="max-w-4xl mx-auto px-4 text-center">
+    <div class="max-w-4xl mx-auto px-4 text-center relative z-10">
       <h3 class="text-2xl font-serif mb-6">До нашего торжества осталось:</h3>
       <noscript>
         <p class="text-xl mb-6">До свадьбы осталось менее года!</p>
@@ -285,12 +346,18 @@
   <div class="floral-divider"></div>
 
   <!-- Details Section -->
-  <section id="details" class="py-20 px-4 bg-white">
-    <div class="max-w-6xl mx-auto">
-      <h2 class="text-4xl font-serif text-center mb-16">Детали торжества</h2>
+  <section id="details" class="py-20 px-4 bg-white relative overflow-hidden">
+    <div class="max-w-6xl mx-auto relative">
+      <div class="absolute -top-20 -left-20 text-9xl text-primary/5 hidden md:block" aria-hidden="true" role="img"><i class="fas fa-ring"></i></div>
+      <div class="absolute -bottom-20 -right-20 text-9xl text-primary/5 hidden md:block" aria-hidden="true" role="img"><i class="fas fa-ring"></i></div>
+      
+      <h2 class="text-4xl font-serif text-center mb-16 section-title">Детали торжества</h2>
       
       <!-- Venue Information -->
-      <div class="mb-20 bg-light p-8 sm:p-12 rounded-xl shadow-sm max-w-3xl mx-auto">
+      <div class="mb-20 bg-light p-8 sm:p-12 rounded-xl shadow-sm max-w-3xl mx-auto relative overflow-hidden">
+        <div class="absolute -top-10 -right-10 text-6xl text-primary/10 hidden md:block" aria-hidden="true" role="img"><i class="fas fa-heart"></i></div>
+        <div class="absolute -bottom-10 -left-10 text-6xl text-primary/10 hidden md:block" aria-hidden="true" role="img"><i class="fas fa-heart"></i></div>
+        
         <div class="text-center mb-10">
           <div class="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
             <i class="fas fa-map-marker-alt text-3xl text-primary"></i>
@@ -300,7 +367,7 @@
         </div>
         
         <div class="space-y-6 max-w-xl mx-auto">
-          <div class="flex items-start bg-white p-4 sm:p-6 rounded-lg shadow-sm">
+          <div class="flex items-start bg-white p-4 sm:p-6 rounded-lg shadow-sm hover:shadow-md transition-all">
             <div class="text-primary mr-3 sm:mr-4 mt-1">
               <i class="fas fa-map-marker-alt text-xl sm:text-2xl"></i>
             </div>
@@ -313,7 +380,7 @@
             </div>
           </div>
           
-          <div class="flex items-start bg-white p-6 rounded-lg shadow-sm">
+          <div class="flex items-start bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-all">
             <div class="text-primary mr-4 mt-1">
               <i class="far fa-calendar-alt text-2xl"></i>
             </div>
@@ -326,7 +393,7 @@
             </div>
           </div>
           
-          <div class="flex items-start bg-white p-6 rounded-lg shadow-sm">
+          <div class="flex items-start bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-all">
             <div class="text-primary mr-4 mt-1">
               <i class="fas fa-car text-2xl"></i>
             </div>
@@ -350,7 +417,7 @@
       
       <!-- Timeline -->
       <div class="mb-20">
-        <h3 class="text-3xl font-serif mb-12 text-center">Программа дня</h3>
+        <h3 class="text-3xl font-serif mb-12 text-center section-title">Программа дня</h3>
         <div class="timeline relative pl-12 max-w-2xl mx-auto">
           <div class="timeline-item relative mb-12 pl-8">
             <div class="mb-4 flex items-center">
@@ -407,20 +474,23 @@
   </section>
 
   <!-- Gifts Section -->
-  <section class="py-20 px-4 bg-white">
-    <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-4xl font-serif mb-8">Список подарков</h2>
+  <section class="py-20 px-4 bg-white relative overflow-hidden">
+    <div class="max-w-4xl mx-auto text-center relative">
+      <div class="absolute -top-20 -left-20 text-6xl text-primary/5 hidden md:block" aria-hidden="true" role="img"><i class="fas fa-gift"></i></div>
+      <div class="absolute -bottom-20 -right-20 text-6xl text-primary/5 hidden md:block" aria-hidden="true" role="img"><i class="fas fa-gift"></i></div>
+      
+      <h2 class="text-4xl font-serif mb-8 section-title">Список подарков</h2>
       <p class="text-xl text-gray-600 mb-12 max-w-2xl mx-auto">Ваше присутствие - уже подарок для нас! Но если вы хотите сделать нам сюрприз, вот пару идей:</p>
       
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-        <div class="bg-light p-6 rounded-xl shadow-sm">
+        <div class="bg-light p-6 rounded-xl shadow-sm hover:shadow-md transition-all">
           <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 text-primary">
             <i class="fas fa-plane text-2xl"></i>
           </div>
           <h3 class="text-xl font-serif mb-3">Путешествие</h3>
           <p class="text-gray-600">Вклад в наш медовый месяц</p>
         </div>
-        <div class="bg-light p-6 rounded-xl shadow-sm">
+        <div class="bg-light p-6 rounded-xl shadow-sm hover:shadow-md transition-all">
           <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 text-primary">
             <i class="fas fa-gift text-2xl"></i>
           </div>
@@ -432,9 +502,14 @@
   </section>
 
   <!-- Footer -->
-  <footer class="py-12 px-4 bg-dark text-white">
-    <div class="max-w-6xl mx-auto">
-      <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+  <footer class="py-12 px-4 bg-dark text-white relative overflow-hidden">
+    <div class="max-w-6xl mx-auto relative">
+      <div class="absolute top-0 left-0 w-full h-full opacity-5 z-0">
+        <div class="absolute top-10 left-10 text-6xl" aria-hidden="true" role="img"><i class="fas fa-heart"></i></div>
+        <div class="absolute bottom-10 right-10 text-6xl" aria-hidden="true" role="img"><i class="fas fa-heart"></i></div>
+      </div>
+      
+      <div class="flex flex-col md:flex-row justify-between items-center gap-8 relative z-10">
         <div class="text-center md:text-left">
           <h3 class="text-3xl font-serif mb-4">Алексей & Дарья</h3>
           <p class="text-light/80 mb-4">С нетерпением ждём встречи с вами в наш особенный день!</p>
